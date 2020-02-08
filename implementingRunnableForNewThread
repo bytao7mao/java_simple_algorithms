@@ -1,0 +1,34 @@
+package com.company;
+
+public class Main implements Runnable {
+
+    Thread go;
+
+    public static void main(String[] args) {
+	// write your code here
+        new Main().startGo();
+        System.out.println("Thread main: " + Thread.currentThread().getName());
+    }
+
+    private void startGo(){
+        if (go == null) {
+            go = new Thread(this);
+            go.start();
+        }
+    }
+
+    @Override
+    public void run() {
+        boolean isNum = isNumeric("34738434343");
+        System.out.println("isNumeric is: " + isNum);
+        System.out.println("Thread runnable: " + Thread.currentThread().getName());
+    }
+    static boolean isNumeric(String arg) {
+        boolean isChar = true;
+        for (Character c : arg.toCharArray()) {
+            if (!Character.isDigit(c))
+                isChar = false;
+        }
+        return isChar;
+    }
+}

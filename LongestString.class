@@ -1,0 +1,17 @@
+public class LongestStringClass {
+    static String longestWord(String text) {
+        //all non letters
+        String[] s = text.split("[^a-zA-Z]");
+        String t = "";
+        for(int i = 0; i < s.length;i++){
+            if(s[i].length() > t.length() )
+                t = s[i];
+        }
+        return t;
+    }
+
+    public static void main(String[] args) {
+        String r = longestWord("hello world!");
+        System.out.println(r);
+    }
+}
