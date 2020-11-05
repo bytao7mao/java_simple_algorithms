@@ -1,7 +1,7 @@
 //we will use in this example Singleton pattern
 public class Singleton {
     private final static Object key = new Object();
-    private static Singleton instance;
+    private static volatile Singleton instance;
     //constructor private to not be able to create type of it
     private final String nameOfInstance;
     private Singleton(String nameOfInstance){
